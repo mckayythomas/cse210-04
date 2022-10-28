@@ -1,17 +1,17 @@
 import os
 import random
 
-from game.casting.actor import Actor
-from game.casting.artifact import Artifact
-from game.casting.cast import Cast
+from greed.casting.actor import Actor
+from greed.casting.objects import Object
+from greed.casting.cast import Cast
 
-from game.directing.director import Director
+from greed.directing.director import Director
 
-from game.services.keyboard_service import KeyboardService
-from game.services.video_service import VideoService
+from greed.services.keyboard_service import KeyboardService
+from greed.services.video_service import VideoService
 
-from game.shared.color import Color
-from game.shared.point import Point
+from greed.shared.color import Color
+from greed.shared.point import Point
 
 
 FRAME_RATE = 12
@@ -46,7 +46,7 @@ def main():
     position = Point(x, y)
 
     robot = Actor()
-    robot.set_text("#")
+    robot.set_text("o")
     robot.set_font_size(FONT_SIZE)
     robot.set_color(WHITE)
     robot.set_position(position)
@@ -71,13 +71,13 @@ def main():
         b = random.randint(0, 255)
         color = Color(r, g, b)
         
-        artifact = Artifact()
-        artifact.set_text(text)
-        artifact.set_font_size(FONT_SIZE)
-        artifact.set_color(color)
-        artifact.set_position(position)
-        artifact.set_message(message)
-        cast.add_actor("artifacts", artifact)
+        object = Object()
+        object.set_text(text)
+        object.set_font_size(FONT_SIZE)
+        object.set_color(color)
+        object.set_position(position)
+        object.set_message(message)
+        cast.add_actor("objects", object)
     
     # start the game
     keyboard_service = KeyboardService(CELL_SIZE)
