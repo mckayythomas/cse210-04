@@ -1,7 +1,7 @@
 import os
 import random
 
-from greed.casting.actor import Actor
+from greed.casting.player import Player
 from greed.casting.objects import Object
 from greed.casting.cast import Cast
 
@@ -33,7 +33,7 @@ def main():
     cast = Cast()
     
     # create the banner
-    banner = Actor()
+    banner = Player()
     banner.set_text("")
     banner.set_font_size(FONT_SIZE)
     banner.set_color(WHITE)
@@ -45,7 +45,7 @@ def main():
     y = int(MAX_Y / 2)
     position = Point(x, y)
 
-    robot = Actor()
+    robot = Player()
     robot.set_text("o")
     robot.set_font_size(FONT_SIZE)
     robot.set_color(WHITE)
