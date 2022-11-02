@@ -27,7 +27,6 @@ FONT_SIZE = 15
 COLS = 60
 ROWS = 40
 CAPTION = "Greed"
-# DATA_PATH = os.path.dirname(os.path.abspath(__file__)) + "/data/messages.txt"
 WHITE = Color(255, 255, 255)
 DEFAULT_ARTIFACTS = random.randint(9, 15)
 
@@ -60,37 +59,11 @@ def main():
     player.set_position(position)
     cast.add_actor("player", player)
     
-    
 
-
-    # create the Gems
-    x = int(MAX_X)
-    y = int(MAX_Y)
-    position = Point(random.randint(1,899), 0)
-    gems = Actor()
-    gems.set_font_size(FONT_SIZE)
-    gems.set_position(position)
-    cast.add_actor("gems", gems)
-
-
-    # # create the Rocks
-    x = int(MAX_X)
-    y = int(MAX_Y)
-    position = Point(random.randint(1,899), 0)
-    rocks = Actor()
-    rocks.set_font_size(FONT_SIZE)
-    cast.add_actor("rocks", rocks)
 
     
 
     for n in range(DEFAULT_ARTIFACTS):
-        
-        picker = random.randint(1,2)
-        if picker == 1:
-            text = ('*')
-        elif picker == 2:
-            text = ('o')
-        
 
         x = random.randint(1, COLS - 1)
         y = 0
@@ -101,13 +74,35 @@ def main():
         g = random.randint(0, 255)
         b = random.randint(0, 255)
         color = Color(r, g, b)
+
+        # create the Gems
+        gems = Actor()
+        position = Point(random.randint(2,898), 0)
+        gems.set_text("*")
+        gems.set_font_size(FONT_SIZE)
+        gems.set_color(color)
+        gems.set_position(position)
+        cast.add_actor("gems", gems)
+
+
+        # create the Rocks
+        stones = Actor()
+        position = Point(random.randint(2,898), 0)
+        stones.set_text("o")
+        stones.set_color(color)
+        stones.set_font_size(FONT_SIZE)
+        stones.set_position(position)
+        cast.add_actor("stones", stones)
+
+        
         
         object = Objects()
-        object.set_text(text)
+        # object.set_text(text)
         object.set_font_size(FONT_SIZE)
         object.set_color(color)
         object.set_position(position)
         cast.add_actor("objects", object)
+        
     
     # start the game
     keyboard_service = KeyboardService(CELL_SIZE)
