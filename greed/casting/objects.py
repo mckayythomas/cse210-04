@@ -1,7 +1,7 @@
-from ..casting.actor import Actor
+from .player import Player
 
 
-class Objects(Actor):
+class Objects(Player):
     """
     An item of cultural or historical interest. 
     
