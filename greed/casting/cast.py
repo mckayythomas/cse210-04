@@ -54,7 +54,7 @@ class Cast:
 
         for group in self._actors:
             #Check actors position to see if they have reached the end of the y axis and remove items off page
-            if(group == "gem" or  group=="stone"):
+            if(group == "gems" or  group=="stones"):
                 templist.extend(self._actors[group])
                 for item in templist:
                     p = item.get_position()
