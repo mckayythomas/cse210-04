@@ -33,13 +33,13 @@ class Director:
 
     def _get_inputs(self, cast):
         """Gets directional input from the keyboard and applies it to the player.
-
+        
         Args:
             cast (Cast): The cast of actors.
         """
-        player = cast.get_first_actor("players")
+        player = cast.get_first_actor("player")
         velocity = self._keyboard_service.get_direction()
-        player.set_velocity(velocity)
+        player.set_velocity(velocity)        
 
     def _do_updates(self, cast):
         """Updates the player's position and resolves any collisions with objects.

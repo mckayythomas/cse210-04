@@ -1,5 +1,5 @@
 from ..shared.point import Point
-import raylib as pyray
+import pyray
 
 
 
