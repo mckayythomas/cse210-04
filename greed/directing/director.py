@@ -48,7 +48,7 @@ class Director:
             cast (Cast): The cast of actors.
         """
         score = cast.get_first_actor("score")
-        player = cast.get_first_actor("players")
+        player = cast.get_first_actor("player")
         stones = cast.get_actors("stones")
         gems = cast.get_actors("gems")
 
