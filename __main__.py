@@ -4,8 +4,8 @@ from tkinter.tix import ROW
 from turtle import *
 
 
-from greed.casting.player import Player
-from greed.casting.objects import Object
+from greed.casting.actor import Actor
+from greed.casting.objects import Objects
 from greed.casting.cast import Cast
 
 from greed.directing.director import Director

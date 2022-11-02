@@ -2,7 +2,7 @@ from ..shared.color import Color
 from ..shared.point import Point
 
 
-class Player:
+class Actor:
     """A visible, moveable thing that participates in the game. 
     
     The responsibility of Player is to keep track of its appearance, position and velocity in 2d 
