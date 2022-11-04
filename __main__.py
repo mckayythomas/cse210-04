@@ -51,7 +51,7 @@ def main():
     y = int(MAX_Y / 2)
     position = Point(450, 570)
 
-    player = Objects()
+    player = Actor()
     player.set_text("#")
     player.set_font_size(FONT_SIZE)
     player.set_color(WHITE)
