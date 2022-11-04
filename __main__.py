@@ -41,7 +41,7 @@ def main():
     x = int(MAX_X / 2)
     y = int(MAX_Y / 2)
     position = Point(5, 5)
-    score = Actor()
+    score = Objects()
     score.set_text("Player Score: ")
     score.set_font_size(FONT_SIZE)
     score.set_color(WHITE)
@@ -53,13 +53,14 @@ def main():
     y = int(MAX_Y / 2)
     position = Point(450, 575)
 
-    player = Actor()
+    player = Objects()
     player.set_text("#")
     player.set_font_size(FONT_SIZE)
     player.set_color(WHITE)
     player.set_position(position)
     cast.add_actor("player", player)
     
+   
     
     for n in range(40):
 
@@ -74,7 +75,7 @@ def main():
         color = Color(r, g, b)
 
         # create the Gems
-        gems = Actor()
+        gems = Objects()
         #position = Point(random.randint(2,898), 0)
         gems.set_text("*")
         gems.set_font_size(FONT_SIZE)
@@ -93,7 +94,7 @@ def main():
         color = Color(r, g, b)
 
         # create the Rocks
-        stones = Actor()
+        stones = Objects()
         #position = Point(random.randint(2,898), 0)
         stones.set_text("o")
         stones.set_color(color)

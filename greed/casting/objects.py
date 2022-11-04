@@ -1,5 +1,5 @@
 from .actor import Actor
-
+from ..shared.point import Point
 
 class Objects(Actor):
     """
@@ -13,9 +13,18 @@ class Objects(Actor):
     def __init__(self):
         super().__init__()
         self._message = ""
+        self._move_counter = 0
+        self._velocity = Point(0, 0)
 
     def rock_gem(self):
         return self._point
     
     def get_item_type(self):
         return self._object
+
+    def fall(self):
+        if self._move_counter < 2:
+            self._move_counter += 1 
+        else:
+            self._position.y += 1
+            self._move_counter = 0

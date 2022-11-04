@@ -7,6 +7,7 @@ from turtle import *
 from greed.casting.actor import Actor
 from greed.shared.color import Color
 from greed.shared.point import Point
+from ..casting.objects import Objects
 
 class Director:
     """A person who directs the game. 
@@ -29,6 +30,7 @@ class Director:
         self._video_service = video_service
         self.moved = 0
         self.score_val = 0
+
 
     def start_game(self, cast):
         """Starts the game using the given cast. Runs the main game loop.
@@ -74,7 +76,7 @@ class Director:
             y = p.get_y()
             if y > 590:
                 cast.remove_actor(stone)
-
+            
             if player.get_position().equals(stone.get_position()):
                 self.score_val - 100
                 cast.remove_actor(stone)
@@ -128,7 +130,7 @@ class Director:
             color = Color(r, g, b)
 
             # create the Gems
-            gems = Actor()
+            gems = Objects()
             position = Point(random.randint(2,898), 0)
             gems.set_text("*")
             gems.set_font_size(15)
@@ -137,7 +139,7 @@ class Director:
             cast.add_actor("gems", gems)
 
             # create the Rocks
-            stones = Actor()
+            stones = Objects()
             position = Point(random.randint(2,898), 0)
             stones.set_text("o")
             stones.set_color(color)
