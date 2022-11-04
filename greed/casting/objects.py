@@ -17,9 +17,9 @@ class Objects(Actor):
 
     def rock_gem(self, group):
         if group == "gems":
-            self._point += 1
+            self._point += 100
         elif group == "stones":
-            self._point -= 1
+            self._point -= 100
 
         return self._point
     
