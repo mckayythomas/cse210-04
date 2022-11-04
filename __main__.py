@@ -33,6 +33,7 @@ def main():
 
     # create the cast
     cast = Cast()
+    objects = Objects()
 
     # create the score
     x = int(MAX_X / 2)
@@ -101,7 +102,7 @@ def main():
     keyboard_service = KeyboardService(CELL_SIZE)
     video_service = VideoService(CAPTION, MAX_X, MAX_Y, CELL_SIZE, FRAME_RATE)
     director = Director(keyboard_service, video_service)
-    director.start_game(cast)
+    director.start_game(cast, objects, COLS, ROWS)
 
 
 if __name__ == "__main__":
