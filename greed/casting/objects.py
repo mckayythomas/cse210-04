@@ -33,14 +33,11 @@ class Objects(Actor):
             self._position.y += 1
             self._move_counter = 0
 
-    def create_objects(self, cast, COLS, ROWS):
-        DEFAULT_ARTIFACTS = random.randint(3, 8)
+    def create_objects(self, cast, COLS, ROWS, CELL_SIZE=15):
+        DEFAULT_ARTIFACTS = random.randint(2, 5)
         for n in range(DEFAULT_ARTIFACTS):
 
-            x = random.randint(1, 60 - 1)
             y = 0
-            position = Point(x, y)
-            position = position.scale(15)
 
             r = random.randint(0, 255)
             g = random.randint(0, 255)
@@ -49,9 +46,9 @@ class Objects(Actor):
 
             # create the Gems
             gems = Objects()
-            x = random.randint(1, COLS - 1)
-            y = random.randint(1, ROWS - 1)
-            position = Point(x, y)
+            x1 = random.randint(1, COLS - 1)
+            position = Point(x1, y)
+            position = position.scale(CELL_SIZE)
             gems.set_text("*")
             gems.set_font_size(15)
             gems.set_color(color)
@@ -60,9 +57,11 @@ class Objects(Actor):
 
             # create the Rocks
             stones = Objects()
-            x = random.randint(1, COLS - 1)
-            y = random.randint(1, ROWS - 1)
-            position = Point(x, y)
+            x2 = x1
+            while x2 == x1:
+                x2 = random.randint(1, COLS - 1)
+            position = Point(x2, y)
+            position = position.scale(CELL_SIZE)
             stones.set_text("o")
             stones.set_color(color)
             stones.set_font_size(15)
