@@ -17,8 +17,6 @@ from greed.shared.color import Color
 from greed.shared.point import Point
 
 
-
-
 FRAME_RATE = 60
 MAX_X = 900
 MAX_Y = 600
@@ -31,12 +29,12 @@ WHITE = Color(255, 255, 255)
 DEFAULT_ARTIFACTS = random.randint(9, 15)
 
 
-
 def main():
-    
+
     # create the cast
     cast = Cast()
-    
+    objects = Objects()
+
     # create the score
     x = int(MAX_X / 2)
     y = int(MAX_Y / 2)
@@ -47,7 +45,7 @@ def main():
     score.set_color(WHITE)
     score.set_position(position)
     cast.add_actor("score", score)
-    
+
     # create the player
     x = int(MAX_X / 2)
     y = int(MAX_Y / 2)
@@ -59,9 +57,7 @@ def main():
     player.set_color(WHITE)
     player.set_position(position)
     cast.add_actor("player", player)
-    
-   
-    
+
     for n in range(40):
 
         x = random.randint(1, COLS - 1)
@@ -101,12 +97,12 @@ def main():
         stones.set_font_size(FONT_SIZE)
         stones.set_position(position)
         cast.add_actor("stones", stones)
-    
+
     # start the game
     keyboard_service = KeyboardService(CELL_SIZE)
     video_service = VideoService(CAPTION, MAX_X, MAX_Y, CELL_SIZE, FRAME_RATE)
     director = Director(keyboard_service, video_service)
-    director.start_game(cast)
+    director.start_game(cast, objects, COLS, ROWS)
 
 
 if __name__ == "__main__":
