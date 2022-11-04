@@ -1,6 +1,3 @@
-# Robot Finds Kitten
-Simon Carless once described robotfindskitten as "less a game and more a way of life ... It's fun to wander around until you find a kitten, at which point you feel happy and can start again". I don't think I could have said it better myself!
-
 ## Getting Started
 ---
 Make sure you have Python 3.8.0 or newer and Raylib Python CFFI 3.7 installed and running on your machine. You can install Raylib Python CFFI by opening a terminal and running the following command.
@@ -18,14 +15,22 @@ project folder. Select the main module inside the hunter folder and click the "r
 ---
 The project files and folders are organized as follows:
 ```
-root                    (project root folder)
-+-- greed               (source code for game)
-  +-- casting           (main object classes for game)
-  +-- directing         (main class to run game)
-  +-- services          (specific service classes)
-  +-- shared            (classes to help with visual effect and placement)
-+-- __main__.py         (entry point for program)
-+-- README.md           (general info)
+root                        (project root folder)
++-- greed                   (source code for game)
+  +-- casting               (main object classes for game)
+    +-- actor.py            (actor class and methods)
+    +-- cast.py             (cast class and methods)
+    +-- objects.py          (objects classes and methods also inherits actor class from actor.py)
+  +-- directing             (main class to run game)
+    +-- director.py         (director classs and methods)
+  +-- services              (specific service classes)
+    +-- keyboard_service.py (keyboard_service classes and methods)
+    +-- video_service.py    (videoservice class and methods)
+  +-- shared                (classes to help with visual effect and placement)
+    +-- color.py            (color class and methods)
+    +-- point.py            (point class and methods)
++-- __main__.py             (entry point for program)
++-- README.md               (general info)
 ```
 
 ## Required Technologies
