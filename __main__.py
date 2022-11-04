@@ -19,7 +19,7 @@ from greed.shared.point import Point
 
 
 
-FRAME_RATE = 12
+FRAME_RATE = 60
 MAX_X = 900
 MAX_Y = 600
 CELL_SIZE = 15
@@ -29,6 +29,7 @@ ROWS = 40
 CAPTION = "Greed"
 WHITE = Color(255, 255, 255)
 DEFAULT_ARTIFACTS = random.randint(9, 15)
+
 
 
 def main():
@@ -59,14 +60,11 @@ def main():
     player.set_position(position)
     cast.add_actor("player", player)
     
-
-
     
-
-    for n in range(DEFAULT_ARTIFACTS):
+    for n in range(40):
 
         x = random.randint(1, COLS - 1)
-        y = 0
+        y = random.randint(1, ROWS - 1)
         position = Point(x, y)
         position = position.scale(CELL_SIZE)
 
@@ -77,32 +75,31 @@ def main():
 
         # create the Gems
         gems = Actor()
-        position = Point(random.randint(2,898), 0)
+        #position = Point(random.randint(2,898), 0)
         gems.set_text("*")
         gems.set_font_size(FONT_SIZE)
         gems.set_color(color)
         gems.set_position(position)
         cast.add_actor("gems", gems)
 
+        x = random.randint(1, COLS - 1)
+        y = random.randint(1, ROWS - 1)
+        position = Point(x, y)
+        position = position.scale(CELL_SIZE)
+
+        r = random.randint(0, 255)
+        g = random.randint(0, 255)
+        b = random.randint(0, 255)
+        color = Color(r, g, b)
 
         # create the Rocks
         stones = Actor()
-        position = Point(random.randint(2,898), 0)
+        #position = Point(random.randint(2,898), 0)
         stones.set_text("o")
         stones.set_color(color)
         stones.set_font_size(FONT_SIZE)
         stones.set_position(position)
         cast.add_actor("stones", stones)
-
-        
-        
-        object = Objects()
-        # object.set_text(text)
-        object.set_font_size(FONT_SIZE)
-        object.set_color(color)
-        object.set_position(position)
-        cast.add_actor("objects", object)
-        
     
     # start the game
     keyboard_service = KeyboardService(CELL_SIZE)

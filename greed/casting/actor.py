@@ -119,9 +119,13 @@ class Actor:
         self._velocity = velocity
 
     def fall(self):
-        if self._move_counter < 6:
-            self._move_counter += 1
+        if self._move_counter < 2:
+            self._move_counter += 1 
         else:
             self._position.y += 1
             self._move_counter = 0
+
+
+
+        
         
