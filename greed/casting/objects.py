@@ -27,10 +27,10 @@ class Objects(Actor):
         return self._object
 
     def fall(self):
-        if self._move_counter < 2:
+        if self._move_counter < 10:
             self._move_counter += 1
         else:
-            self._position.y += 1
+            self._position.y += 5
             self._move_counter = 0
 
     def create_objects(self, cast, COLS, ROWS, CELL_SIZE=15):

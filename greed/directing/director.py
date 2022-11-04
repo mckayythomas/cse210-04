@@ -74,29 +74,27 @@ class Director:
             p = stone.get_position()
             y = p.get_y()
             if y > 590:
-                cast.remove_actor(stone)
+                cast.remove_actor("stones", stone)
 
             if player.get_position().equals(stone.get_position()):
                 self.score_val -= 100
-                cast.remove_actor(stone)
-              
-                
-
+                cast.remove_actor("stones", stone)
+                stone.set_text("")
 
         for gem in gems:
             gem.fall()
             p = gem.get_position()
             y = p.get_y()
             if y > 590:
-                cast.remove_actor(gem)
+                cast.remove_actor("gems", gem)
 
             if player._position.equals(gem._position):
                 self.score_val += 100
-                cast.remove_actor(gem)
-            
-        
-        score.set_text("Player Score: " + str(self.score_val))
-        
+                cast.remove_actor("gems", gem)
+                gem.set_text("")
+
+        score.set_text(f"Player Score: {self.score_val}")
+
         # Create more
         if player._move_counter == 0:
             self.moved += 1
