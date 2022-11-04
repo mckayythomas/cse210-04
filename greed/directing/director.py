@@ -29,7 +29,7 @@ class Director:
         self._keyboard_service = keyboard_service
         self._video_service = video_service
         self.moved = 0
-        self.score_val = 0
+        self.score_val = 500
 
 
     def start_game(self, cast):
@@ -78,8 +78,9 @@ class Director:
                 cast.remove_actor(stone)
             
             if player.get_position().equals(stone.get_position()):
-                self.score_val - 100
+                self.score_val -= 100
                 cast.remove_actor(stone)
+                break
                 
 
         for gem in gems:
@@ -90,11 +91,12 @@ class Director:
                 cast.remove_actor(gem)
 
             if player._position.equals(gem._position):
-                self.score_val + 100
+                self.score_val += 100
                 cast.remove_actor(gem)
+                break
             
-
-
+        
+        score.set_text("Player Score: " + str(self.score_val))
         
         # Create more
         if player._move_counter == 0:
